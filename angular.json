@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "geometry2d": {
+      "projectType": "library",
+      "root": "projects/geometry2d",
+      "sourceRoot": "projects/geometry2d/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/geometry2d/tsconfig.lib.json",
+            "project": "projects/geometry2d/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/geometry2d/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/geometry2d/src/test.ts",
+            "tsConfig": "projects/geometry2d/tsconfig.spec.json",
+            "karmaConfig": "projects/geometry2d/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/geometry2d/tsconfig.lib.json",
+              "projects/geometry2d/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "Geometry2D"
